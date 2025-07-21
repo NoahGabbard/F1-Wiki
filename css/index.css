@@ -46,44 +46,36 @@ section h2 {
     text-align: center;
 }
 
-.driver-category {
-    background-color: #1f1f1f;
-    margin-bottom: 20px;
-    padding: 15px;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+.teams-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem; 
+  justify-content: center;
 }
 
-.driver-category:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.5);
+.team {
+  flex: 1 1 300px; 
+  max-width: 350px;
+  min-width: 250px;
+  margin-bottom: 0; 
+  background: #181818;
+  padding: 1rem;
+  border-radius: 8px;
 }
 
-.driver-category h3 {
-    font-size: 1.5rem;
-    color: #ffffff;
-    cursor: pointer;
-    margin-bottom: 10px;
-    text-transform: uppercase;
-    transition: color 0.3s ease;
+.team h3 {
+  text-align: center;
+}
 }
 
-.driver-category h3:hover {
-    color: #e10600;
+.drivers {
+  margin-top: 1rem;
 }
 
-.driver-category .dropdown-content {
-    display: none;
-    margin-top: 10px;
-    padding: 10px;
-    background-color: #292929;
-    border-radius: 5px;
-    color: #cccccc;
-}
-
-.driver-category .dropdown-content p {
-    margin-bottom: 10px;
+.driver {
+  margin-bottom: 1rem;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #333; 
 }
 
 footer {
@@ -99,6 +91,40 @@ footer p {
     font-size: 0.9rem;
 }
 
+.team-mercedes {
+    color: #6CD3BF;
+}
+.team-redbull {
+    color: #1E41FF;
+}
+.team-ferrari {
+    color: #E10600;
+}
+.team-mclaren {
+    color: #FF8000;
+}
+.team-astonmartin {
+    color: #229971;
+}
+.team-alpine {
+    color: #ff26ed;
+}
+.team-williams {
+    color: #002df3;
+}
+.team-stake {
+    color: #52E252;
+}
+.team-haas {
+    color: #B6BABD;
+}
+.team-rb {
+    color: #6692FF;
+}
+.team-andretti {
+    color: #0033A0;
+}
+
 @media (max-width: 768px) {
     header h1 {
         font-size: 2rem;
@@ -110,9 +136,5 @@ footer p {
 
     section h2 {
         font-size: 1.8rem;
-    }
-
-    .driver-category h3 {
-        font-size: 1.3rem;
     }
 }

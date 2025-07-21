@@ -180,3 +180,44 @@ const teams = [
     ]
   }
 ];
+
+document.addEventListener("DOMContentLoaded", function() {
+  const teamsContainer = document.getElementById("teams");
+  let html = "";
+
+  const teamClassMap = {
+    "Mercedes-AMG Petronas": "mercedes",
+    "Oracle Red Bull Racing": "redbull",
+    "Scuderia Ferrari": "ferrari",
+    "McLaren": "mclaren",
+    "Aston Martin": "astonmartin",
+    "BWT Alpine F1 Team": "alpine",
+    "Atlassian Williams Racing": "williams",
+    "Stake F1 Team Kick Sauber": "stake",
+    "MoneyGram Haas F1 Team": "haas",
+    "Visa CashApp Racing Bulls": "rb",
+    "Andretti Global": "andretti"
+  };
+
+  teams.forEach(team => {
+    const classSuffix = teamClassMap[team.name] || "";
+    const teamClass = classSuffix ? `team-${classSuffix}` : "";
+    html += `
+      <div class="team">
+        <h3 class="${teamClass}">${team.name}</h3>
+        <p>${team.description}</p>
+        <div class="drivers">
+          ${team.drivers.map(driver => `
+            <div class="driver">
+              <strong>${driver.name}</strong> (${driver.nationality}, Age: ${driver.age})<br>
+              <em>${driver.aspirations}</em>
+            </div>
+          `).join("")}
+        </div>
+      </div>
+      <hr>
+    `;
+  });
+
+  teamsContainer.innerHTML = html;
+});
