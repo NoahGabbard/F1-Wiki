@@ -9,6 +9,7 @@ A modern, responsive web application for exploring up-to-date information about 
 - [File Structure](#file-structure)
 - [Technologies Used](#technologies-used)
 - [System Architecture](#system-architecture)
+- [Getting-Started](#getting-started)
 - [Project Timeline](#project-timeline)
 - [License](#license)
 
@@ -35,18 +36,20 @@ F1 Pulse is designed to provide Formula 1 fans with a clean, visually appealing,
 ## File Structure
 ```
 F1-Pulse/
-├── index.html           # Main HTML file
+├── index.html             # Main HTML file
+├── server.js              # Express server (backend entry point)
+├── .env                   # Environment variables (API keys, etc.)
+├── package.json           # Project dependencies
+├── README.md              # Project documentation
+├── .gitignore             # Git ignore file
 ├── css/
-│   └── F1-pulse.css     # Stylesheet for the site
+│   └── index.css          # Main stylesheet for the site
 ├── js/
-│   └── F1-pulse.js      # JavaScript for interactivity and API integration
+│   └── index.js           # JavaScript for interactivity and API integration
 ├── assets/
-│   ├── images/          # Images, icons, logos
-│   └── fonts/           # Custom fonts
-├── charts/              # Chart configs or images
-├── README.md            # Project documentation
-├── .gitignore           # Git ignore file
-├── package.json         # For npm dependencies
+│   ├── images/            # Images, icons, logos
+│   └── fonts/             # Custom fonts
+├── charts/                # Chart configs or images
 ```
 
 ## Technologies Used
@@ -68,6 +71,44 @@ F1-Pulse/
   - Charts, countdowns, and more
 - **Development Tools:** VS Code, Git/GitHub
 - **(Optional) Backend:** Node.js/Express for API key security
+
+## Getting Started
+
+Follow these steps to set up and run F1 Pulse on your local machine:
+
+### 1. Clone the repository
+Clone the project to your computer using:
+```sh
+git clone https://github.com/NoahGabbard/F1-Pulse.git
+cd F1-Pulse
+```
+
+### 2. Install dependencies
+Install all required Node.js packages:
+```sh
+npm install
+```
+
+### 3. Start the development server
+Start the Express server:
+```sh
+node server.js
+```
+The app will be available at [http://localhost:3000](http://localhost:3000).
+
+### 4. Open the app in your browser
+Go to [http://localhost:3000](http://localhost:3000) to use F1 Pulse.
+
+### 5. Project structure
+The main files and folders are:
+```
+index.html         # Main HTML file
+css/               # Stylesheets
+js/                # JavaScript files
+assets/            # Images, icons, fonts
+server.js          # Express server
+package.json       # Project dependencies
+```
 
 ## Project Timeline
 - **Week 1:** Planning, setup, basic HTML/CSS
