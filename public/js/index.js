@@ -215,7 +215,6 @@ document.addEventListener("DOMContentLoaded", function() {
           `).join("")}
         </div>
       </div>
-      <hr>
     `;
   });
 

@@ -14,15 +14,14 @@ body {
 }
 
 header {
-    background-color: #1f1f1f;
+    background-color: #3d3c3c;
     padding: 20px 0;
     text-align: center;
-    border-bottom: 2px solid #e10600;
 }
 
 header h1 {
     font-size: 2.5rem;
-    color: #e10600;
+    color: #ff3833;
     text-transform: uppercase;
     letter-spacing: 2px;
 }
@@ -41,7 +40,7 @@ main p {
 
 section h2 {
     font-size: 2rem;
-    color: #e10600;
+    color: #ff3833;
     margin-bottom: 20px;
     text-align: center;
 }
@@ -58,7 +57,7 @@ section h2 {
   max-width: 350px;
   min-width: 250px;
   margin-bottom: 0; 
-  background: #181818;
+  background: #3d3c3c;
   padding: 1rem;
   border-radius: 8px;
 }
@@ -74,7 +73,6 @@ section h2 {
 .driver {
   margin-bottom: 1rem;
   padding: 0.5rem 0;
-  border-bottom: 1px solid #333; 
 }
 
 footer {
@@ -82,7 +80,6 @@ footer {
     margin-top: 40px;
     padding: 10px 0;
     background-color: #1f1f1f;
-    border-top: 2px solid #e10600;
 }
 
 footer p {
@@ -97,7 +94,7 @@ footer p {
     color: #1E41FF;
 }
 .team-ferrari {
-    color: #E10600;
+    color: #fd1d17;
 }
 .team-mclaren {
     color: #FF8000;
@@ -109,13 +106,13 @@ footer p {
     color: #ff26ed;
 }
 .team-williams {
-    color: #002df3;
+    color: #5675ff;
 }
 .team-stake {
     color: #52E252;
 }
 .team-haas {
-    color: #B6BABD;
+    color: #ffffff;
 }
 .team-rb {
     color: #6692FF;

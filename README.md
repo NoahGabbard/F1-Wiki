@@ -42,14 +42,14 @@ F1-Pulse/
 ├── package.json           # Project dependencies
 ├── README.md              # Project documentation
 ├── .gitignore             # Git ignore file
-├── css/
-│   └── index.css          # Main stylesheet for the site
-├── js/
-│   └── index.js           # JavaScript for interactivity and API integration
-├── assets/
-│   ├── images/            # Images, icons, logos
-│   └── fonts/             # Custom fonts
-├── charts/                # Chart configs or images
+├── public/
+│   ├── index.html         # Main HTML file (served to client)
+│   ├── css/
+│   │   └── index.css      # Main stylesheet for the site
+│   ├── js/
+│   │   └── index.js       # JavaScript for interactivity and API integration
+│   ├── assets/
+│   │   └── images/        # Images, icons, logos
 ```
 
 ## Technologies Used
@@ -88,7 +88,10 @@ Install all required Node.js packages:
 ```sh
 npm install
 ```
-
+Install all required AXIOS packages: 
+```sh
+npm install axios
+```
 ### 3. Start the development server
 Start the Express server:
 ```sh
@@ -105,7 +108,7 @@ The main files and folders are:
 index.html         # Main HTML file
 css/               # Stylesheets
 js/                # JavaScript files
-assets/            # Images, icons, fonts
+assets/            # Images and Logos
 server.js          # Express server
 package.json       # Project dependencies
 ```
