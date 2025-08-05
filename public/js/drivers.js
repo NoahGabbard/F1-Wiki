@@ -33,9 +33,9 @@ document.addEventListener('DOMContentLoaded', () => {
         const headshot = driver.headshot_url && driver.headshot_url.trim() !== '' ? driver.headshot_url : defaultHeadshot;
         if (headerH1) headerH1.textContent = fullName;
         profileDiv.innerHTML = `
-          <div class="team" style="max-width:400px;margin:2rem auto;">
-            <h2 style="text-align:center;">${fullName}</h2>
-            <div style='text-align:center;'><img src='${headshot}' alt='${fullName} headshot' style='max-width:150px;max-height:150px;border-radius:50%;margin:1rem auto;display:block;'/></div>
+          <div class="driver-profile-card">
+            <h2>${fullName}</h2>
+            <img class="driver-profile-img" src='${headshot}' alt='${fullName} headshot'/>
             <p><strong>Number:</strong> ${driverNumber}</p>
             <p><strong>Team:</strong> ${team}</p>
             <p><strong>Country:</strong> ${countryCode}</p>
