@@ -36,41 +36,49 @@ F1 Pulse is designed to provide Formula 1 fans with a clean, visually appealing,
 ## File Structure
 ```
 F1-Pulse/
-├── index.html             # Main HTML file
 ├── server.js              # Express server (backend entry point)
-├── .env                   # Environment variables (API keys, etc.)
 ├── package.json           # Project dependencies
 ├── README.md              # Project documentation
 ├── .gitignore             # Git ignore file
 ├── public/
 │   ├── index.html         # Main HTML file (served to client)
+│   ├── drivers.html       # Single driver profile page
 │   ├── css/
 │   │   └── index.css      # Main stylesheet for the site
 │   ├── js/
-│   │   └── index.js       # JavaScript for interactivity and API integration
+│   │   ├── index.js       # JavaScript for main page (teams/drivers list)
+│   │   └── drivers.js     # JavaScript for driver profile page
 │   ├── assets/
 │   │   └── images/        # Images, icons, logos
 ```
 
 ## Technologies Used
-- **HTML5** for structure
-- **CSS3** for styling
-- **JavaScript** for dynamic content, API integration, and interactivity
-- **Chart.js** for data visualization
-- **OpenF1 API** for live F1 data
 
-## System Architecture
-- **Frontend:** HTML, CSS, and JavaScript
-- **Data Layer:**
-  - Static driver/team data in JS arrays/objects
-  - Live data fetched from OpenF1 API using an API key
-  - LocalStorage for caching
-- **User Interaction:**
-  - Dynamic rendering of driver/team info
-  - Forms with input validation
-  - Charts, countdowns, and more
+## Dependencies
+
+
+**Backend:**
+- express
+- axios
+
+To install these backend dependencies, run the following command in your project directory:
+```sh
+npm install express axios
+```
+
+**Frontend:**
+- No external dependencies (uses only HTML, CSS, and vanilla JavaScript)
+
+
+- **Frontend:** HTML, CSS, and JavaScript (served from `public/`)
+  - `index.html` displays all teams and drivers, with profile links.
+  - `drivers.html` displays a single driver profile, based on the name in the URL query string.
+- **Backend:** Node.js/Express (`server.js`)
+  - Serves static files from `public/`
+  - Proxies requests to the OpenF1 API (no API key required)
+- **Data Source:**
+  - All F1 data is fetched from the [OpenF1 API](https://openf1.org/)
 - **Development Tools:** VS Code, Git/GitHub
-- **(Optional) Backend:** Node.js/Express for API key security
 
 ## Getting Started
 
@@ -88,10 +96,7 @@ Install all required Node.js packages:
 ```sh
 npm install
 ```
-Install all required AXIOS packages: 
-```sh
-npm install axios
-```
+
 ### 3. Start the development server
 Start the Express server:
 ```sh
@@ -105,9 +110,10 @@ Go to [http://localhost:3000](http://localhost:3000) to use F1 Pulse.
 ### 5. Project structure
 The main files and folders are:
 ```
-index.html         # Main HTML file
+index.html         # Main HTML file (teams/drivers list)
+drivers.html       # Single driver profile page
 css/               # Stylesheets
-js/                # JavaScript files
+js/                # JavaScript files (index.js, drivers.js)
 assets/            # Images and Logos
 server.js          # Express server
 package.json       # Project dependencies
@@ -117,5 +123,5 @@ package.json       # Project dependencies
 - **Week 1:** Planning, setup, basic HTML/CSS
 - **Week 2:** Static content, core UI, JS structure
 - **Week 3:** Dynamic rendering, interactivity
-- **Week 4:** OpenF1 API integration, input validation, utility features
-- **Week 5:** Data visualization, testing, documentation, finalization
+- **Week 4:** OpenF1 API integration, robust backend matching, error handling, documentation
+- **Week 5:** Data visualization, testing, finalization

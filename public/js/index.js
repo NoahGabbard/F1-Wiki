@@ -210,7 +210,10 @@ document.addEventListener("DOMContentLoaded", function() {
           ${team.drivers.map(driver => `
             <div class="driver">
               <strong>${driver.name}</strong> (${driver.nationality}, Age: ${driver.age})<br>
-              <em>${driver.aspirations}</em>
+              <em>${driver.aspirations}</em><br>
+              <a href="drivers.html?name=${encodeURIComponent(driver.name)}">
+                <button>View Profile</button>
+              </a>
             </div>
           `).join("")}
         </div>
