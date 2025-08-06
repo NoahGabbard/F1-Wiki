@@ -12,12 +12,20 @@
     </header>
     <main>
         <p>Explore the world of Formula 1 racing!</p>
-    
+
+        <!-- Requirement met: Form with input validation (Table 1) -->
+        <form id="driver-search-form" style="text-align:center; margin-bottom:2rem;">
+            <label for="driver-search-input"><strong>Search for a driver by name:</strong></label><br>
+            <input type="text" id="driver-search-input" name="driver-search-input" placeholder="e.g. Lando Norris" style="padding:0.5rem; margin-top:0.5rem; width:220px;">
+            <button type="submit" class="driver-btn">Search</button>
+            <div id="driver-search-error" style="color:#e10600; margin-top:0.5rem; min-height:1.2em;"></div>
+        </form>
+
         <section>
             <h2>F1 Teams & Drivers - 2025</h2>
             <div id="teams" class="teams-row"></div>
         </section>
-    
+
     </main>
     <footer>
         <p>&copy; 2025 F1 Pulse</p>

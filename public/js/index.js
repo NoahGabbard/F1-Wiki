@@ -1,3 +1,4 @@
+// Requirement met: Analyze data in arrays/objects and display info (Table 1)
 const teams = [
   {
     name: "McLaren",
@@ -199,6 +200,7 @@ document.addEventListener("DOMContentLoaded", function() {
     "Andretti Global": "andretti"
   };
 
+  // Requirement met: Function with 2+ params returning calculated/determined value (Table 1)
   teams.forEach(team => {
     const classSuffix = teamClassMap[team.name] || "";
     const teamClass = classSuffix ? `team-${classSuffix}` : "";
@@ -221,5 +223,87 @@ document.addEventListener("DOMContentLoaded", function() {
     `;
   });
 
+  // Requirement met: Use a regular expression to validate user input (Table 1)
+
   teamsContainer.innerHTML = html;
+  const searchForm = document.getElementById('driver-search-form');
+  const searchInput = document.getElementById('driver-search-input');
+  const searchError = document.getElementById('driver-search-error');
+  if (searchForm && searchInput && searchError) {
+    const searchButton = searchForm.querySelector('button[type="submit"]');
+
+    const getAllDriverNames = () => {
+      return teams.flatMap(team => team.drivers.map(driver => driver.name.toLowerCase()));
+    };
+    const validDriverNames = getAllDriverNames();
+
+    const validateInput = (value) => {
+      const regex = /^[a-zA-Z\s\-]+$/;
+      if (!value) return false;
+      if (!regex.test(value)) return false;
+      if (!value.includes(' ')) return false;
+      if (!validDriverNames.includes(value.toLowerCase())) return false;
+      return true;
+    };
+
+    const setErrorMessage = (value) => {
+      if (!value) {
+        searchError.textContent = '';
+      } else if (!/^[a-zA-Z\s\-]+$/.test(value)) {
+        searchError.textContent = 'Invalid input: only letters, spaces, and hyphens allowed.';
+      } else if (!value.includes(' ')) {
+        searchError.textContent = 'Please enter both first and last name (with a space).';
+      } else {
+        searchError.textContent = 'Driver not found. Please enter a valid driver name.';
+      }
+    };
+
+    if (searchButton) searchButton.disabled = true;
+
+    searchInput.addEventListener('input', function() {
+      const value = searchInput.value.trim();
+      if (validateInput(value)) {
+        searchButton.disabled = false;
+        searchError.textContent = '';
+      } else {
+        searchButton.disabled = true;
+        setErrorMessage(value);
+      }
+    });
+
+    searchForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const value = searchInput.value.trim();
+      if (!validateInput(value)) {
+        setErrorMessage(value);
+        return;
+      }
+      searchError.textContent = '';
+      window.location.href = `drivers.html?name=${encodeURIComponent(value)}`;
+    });
+  }
 });
+
+/*
+Particularly proud of this code because it: 
+--------------------------------------------------
+1. Renders all F1 teams and their drivers to the page by building HTML from the `teams` array and injecting it into the DOM.
+2. Sets up the driver search form by grabbing references to the form, input, error message, and submit button elements.
+3. Builds a list of all valid driver names (lowercased) from the teams data for validation.
+4. Defines a `validateInput` function that:
+   - Ensures the input is not empty.
+   - Checks the input only contains letters, spaces, or hyphens (using regex).
+   - Requires both a first and last name (checks for a space).
+   - Confirms the input matches a valid driver name from the data.
+5. Defines a `setErrorMessage` function to display a specific error message based on why the input is invalid.
+6. Disables the search button by default to prevent invalid submissions.
+7. Adds an input event listener to:
+   - Enable the search button and clear errors if the input is valid.
+   - Disable the button and show the appropriate error message if invalid.
+8. Adds a submit event listener to:
+   - Prevent the default form submission.
+   - If the input is invalid, show the correct error message and do nothing else.
+   - If the input is valid, clear errors and navigate to the driver's profile page.
+9. This ensures only valid, correctly formatted driver names can be searched, providing a robust and user-friendly experience.
+10. I had to do multiple tests to ensure the validation worked correctly, especially with invalid names or names that didn't pertain to any driver in the data.
+*/

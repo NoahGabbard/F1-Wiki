@@ -18,20 +18,20 @@ F1 Pulse is designed to provide Formula 1 fans with a clean, visually appealing,
 
 ## Features
 - **Modern UI:** Dark-themed, responsive design for all devices.
-- **Driver & Team Profiles:** Dynamic display of driver and team information, including aspirations and achievements.
+- **Driver & Team Profiles:** Dynamic display of driver information.
 - **Live Data:** Real-time updates from the OpenF1 API.
-- **Expandable Sections:** Interactive dropdowns for more driver details (planned).
+- **Expandable Sections:** (Planned) Interactive dropdowns for more driver details.
 - **Input Validation:** Forms with regex validation to ensure clean user input.
 - **Data Visualization:** (Planned) Charts and graphs using Chart.js.
 - **Countdown Timer:** (Planned) Days until the next F1 race.
 - **Easy Navigation:** Simple, clean layout for a seamless user experience.
 
 ## Project Goals
-- Provide a user-friendly, visually appealing resource for F1 driver and team information.
-- Integrate live data from the OpenF1 API.
+- Provide a user-friendly, visually appealing resource for F1 driver information.
+- Integrate data from the OpenF1 API.
 - Ensure the site is responsive and accessible on all devices.
 - Expand to include all drivers and teams on the F1 grid.
-- Lay the groundwork for future features like data visualization and race countdowns.
+- Lay the groundwork for future features like race countdowns, driver/constructors charts, interactive dropdowns.
 
 ## File Structure
 ```
@@ -65,11 +65,6 @@ To install these backend dependencies, run the following command in your project
 ```sh
 npm install express axios
 ```
-
-**Frontend:**
-- No external dependencies (uses only HTML, CSS, and vanilla JavaScript)
-
-
 - **Frontend:** HTML, CSS, and JavaScript (served from `public/`)
   - `index.html` displays all teams and drivers, with profile links.
   - `drivers.html` displays a single driver profile, based on the name in the URL query string.

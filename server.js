@@ -1,4 +1,5 @@
 
+// Requirement met: Node.js web server using Express.js (Table 2)
 const express = require('express');
 const path = require('path');
 const axios = require('axios');
@@ -41,7 +42,6 @@ app.get('/api/driver', async (req, res) => {
     let { driver_number, full_name, name } = req.query;
     const url = 'https://api.openf1.org/v1/drivers';
     if (driver_number) {
-      // If driver_number is provided, use the API filter
       const response = await axios.get(url, { params: { driver_number } });
       const drivers = response.data;
       if (!drivers || drivers.length === 0) {
@@ -58,16 +58,13 @@ app.get('/api/driver', async (req, res) => {
       return res.json(normalized);
     }
 
-    // Otherwise, fetch all drivers and find the best match
     const response = await axios.get(url);
     const drivers = response.data;
     if (!drivers || drivers.length === 0) {
       return res.status(404).json({ error: 'No drivers found' });
     }
     const searchName = (full_name || name || '').toLowerCase().replace(/\s+/g, ' ').trim();
-    // Try to find an exact match (case-insensitive)
     let match = drivers.find(d => (d.full_name || '').toLowerCase() === searchName);
-    // If not found, try to find a partial match (case-insensitive, ignoring order)
     if (!match) {
       const searchParts = searchName.split(' ').filter(Boolean);
       match = drivers.find(d => {
